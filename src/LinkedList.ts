@@ -7,7 +7,7 @@ class Node {
 export class LinkedList {
   head: Node | null = null;
 
-  add(data: number) {
+  add(data: number): void {
     const node = new Node(data);
 
     if (!this.head) {
@@ -35,6 +35,7 @@ export class LinkedList {
       length++;
       node = node.next;
     }
+    return length;
   }
 
   at(index: number): Node {
@@ -52,6 +53,7 @@ export class LinkedList {
       counter++;
       node = node.next;
     }
+    throw new Error('Index out of bounds');
   }
 
   compare(leftIndex: number, rightIndex: number) {
